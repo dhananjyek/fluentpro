@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FluentPro English Academy | Premium Education</title>
+    <title>FluentPro English Academy | Master Your Future</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
@@ -33,107 +33,157 @@
     <style>
         .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F1D592 50%, #B4912B 100%); }
         .gold-text { background: linear-gradient(135deg, #D4AF37 0%, #F1D592 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-overlay { background: linear-gradient(to bottom, rgba(10,31,61,0.85) 0%, rgba(10,31,61,0.5) 100%); }
+        .hero-overlay { background: linear-gradient(to right, rgba(10,31,61,0.9) 20%, rgba(10,31,61,0.4) 100%); }
+        .glass-nav { background: rgba(10, 31, 61, 0.95); backdrop-filter: blur(10px); }
         
-        /* Mobile Menu Animation */
-        #mobile-menu { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .menu-open { transform: translateX(0) !important; }
+        /* Modal Animation */
+        #demo-modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .modal-active { opacity: 1; visibility: visible; }
     </style>
 </head>
-
 <body class="font-body bg-offWhite text-navy overflow-x-hidden">
 
-    <nav class="fixed w-full z-[100] py-4 bg-navy/95 backdrop-blur-lg border-b border-white/10">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-heading font-bold gold-text tracking-tighter">
-                FluentPro.
-            </div>
-
-            <div class="hidden lg:flex items-center space-x-10 text-white text-[11px] font-semibold uppercase tracking-[2px]">
+    <nav class="fixed w-full z-50 py-4 glass-nav border-b border-white/10">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div class="text-2xl font-heading font-bold gold-text tracking-tighter">FluentPro.</div>
+            <div class="hidden lg:flex items-center space-x-8 text-white text-[11px] font-semibold uppercase tracking-widest">
                 <a href="#about" class="hover:text-gold transition">Our Story</a>
-                <a href="#features" class="hover:text-gold transition">Why Us</a>
+                <a href="#why" class="hover:text-gold transition">Why Us</a>
                 <a href="#pricing" class="hover:text-gold transition">Programs</a>
-                <a href="#contact" class="gold-gradient px-6 py-2 text-navy hover:scale-105 transition">Admissions</a>
+                <button onclick="toggleModal()" class="gold-gradient px-6 py-2 text-navy hover:brightness-110 transition">Book Demo</button>
             </div>
-
-            <button id="menu-btn" class="lg:hidden text-gold focus:outline-none">
-                <i data-lucide="menu" class="w-8 h-8"></i>
-            </button>
+            <button id="mobile-toggle" class="lg:hidden text-gold"><i data-lucide="menu"></i></button>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-navy z-[110] translate-x-full lg:hidden flex flex-col items-center justify-center space-y-8">
-        <button id="close-btn" class="absolute top-6 right-6 text-white">
-            <i data-lucide="x" class="w-10 h-10"></i>
-        </button>
-        <a href="#about" class="text-2xl text-white font-heading hover:text-gold close-link">Our Story</a>
-        <a href="#features" class="text-2xl text-white font-heading hover:text-gold close-link">Why Us</a>
-        <a href="#pricing" class="text-2xl text-white font-heading hover:text-gold close-link">Programs</a>
-        <a href="#contact" class="text-2xl gold-text font-heading close-link">Admissions</a>
-    </div>
-
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000" class="w-full h-full object-cover" alt="Elite Professionals">
+    <section class="relative h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Elite Workspace">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
-        
-        <div class="container mx-auto px-6 relative z-10 text-center lg:text-left">
-            <div class="max-w-4xl mx-auto lg:mx-0" data-aos="fade-up">
-                <h1 class="font-heading text-4xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight">
-                    Master English.<br><span class="gold-text">Master Your Future.</span>
-                </h1>
-                <p class="text-white/80 text-base md:text-xl mb-10 font-light max-w-2xl mx-auto lg:mx-0">
-                    Experience elite linguistic coaching designed for high-performance individuals.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                    <a href="#contact" class="gold-gradient px-10 py-5 font-bold text-navy uppercase tracking-widest text-xs">Start Your Journey</a>
-                    <a href="#" class="border border-white/40 px-10 py-5 font-bold text-white uppercase tracking-widest text-xs hover:bg-white/10">Book Free Demo</a>
+        <div class="container mx-auto px-6 md:px-12 relative z-10" data-aos="fade-up">
+            <div class="max-w-3xl">
+                <h1 class="font-heading text-5xl md:text-8xl text-white mb-6 leading-tight">Master English.<br><span class="gold-text">Master Your Future.</span></h1>
+                <p class="text-white/70 text-lg md:text-xl mb-10 font-light max-w-xl">Premium linguistic training for global professionals.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="document.getElementById('contact').scrollIntoView()" class="gold-gradient px-10 py-5 font-bold text-navy uppercase tracking-widest text-xs">Start Your Journey</button>
+                    <button onclick="toggleModal()" class="border border-white/40 px-10 py-5 font-bold text-white uppercase tracking-widest text-xs hover:bg-white/10">Book Free Demo</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-8 border border-gray-100 hover:shadow-2xl transition" data-aos="fade-up">
-                    <i data-lucide="users" class="text-gold w-10 h-10 mb-6"></i>
-                    <h3 class="font-heading text-2xl mb-4">Small Batch Sizes</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Personalized attention with a maximum of 5 students per session for elite progress.</p>
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16 items-center">
+            <div data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="rounded-lg shadow-2xl" alt="Our Mentors">
+            </div>
+            <div data-aos="fade-left">
+                <h2 class="font-heading text-4xl mb-6">Our Story</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">We transform fear into eloquence. FluentPro was built to help ambitious individuals claim their seat at the global table by mastering the art of English communication.</p>
+                <button onclick="toggleModal()" class="text-gold font-bold uppercase tracking-widest text-xs border-b border-gold pb-2">Join our legacy</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="py-24 bg-offWhite">
+        <div class="container mx-auto px-6 md:px-12">
+            <h2 class="font-heading text-4xl text-center mb-16">The Premium Edge</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 shadow-sm hover:shadow-xl transition group" data-aos="fade-up">
+                    <i data-lucide="users" class="text-gold mb-6"></i>
+                    <h3 class="font-heading text-xl mb-4">Small Batches</h3>
+                    <p class="text-gray-400 text-sm">Personalized focus with a max of 5 students per cohort.</p>
                 </div>
-                <div class="p-8 border border-gray-100 hover:shadow-2xl transition" data-aos="fade-up" data-aos-delay="100">
-                    <i data-lucide="briefcase" class="text-gold w-10 h-10 mb-6"></i>
-                    <h3 class="font-heading text-2xl mb-4">Interview Mastery</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Tailored corporate preparation to help you command respect in global boardrooms.</p>
+                <div class="bg-white p-10 shadow-sm hover:shadow-xl transition group" data-aos="fade-up" data-aos-delay="100">
+                    <i data-lucide="mic-2" class="text-gold mb-6"></i>
+                    <h3 class="font-heading text-xl mb-4">Real Conversation</h3>
+                    <p class="text-gray-400 text-sm">Scenario-based training for real-world impact.</p>
                 </div>
-                <div class="p-8 border border-gray-100 hover:shadow-2xl transition" data-aos="fade-up" data-aos-delay="200">
-                    <i data-lucide="award" class="text-gold w-10 h-10 mb-6"></i>
-                    <h3 class="font-heading text-2xl mb-4">Personal Mentorship</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Direct access to expert linguists to refine your unique professional voice.</p>
+                <div class="bg-white p-10 shadow-sm hover:shadow-xl transition group" data-aos="fade-up" data-aos-delay="200">
+                    <i data-lucide="briefcase" class="text-gold mb-6"></i>
+                    <h3 class="font-heading text-xl mb-4">Career Growth</h3>
+                    <p class="text-gray-400 text-sm">Executive-level interview and presentation coaching.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-navy py-10 border-t border-white/5 text-center">
-        <p class="text-white/40 text-[10px] uppercase tracking-widest">© 2026 FluentPro English Academy</p>
-    </footer>
+    <section class="py-20 bg-navy text-white text-center">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div><div class="text-5xl font-heading gold-text mb-2">5,000+</div><p class="text-[10px] tracking-widest uppercase opacity-60">Students</p></div>
+            <div><div class="text-5xl font-heading gold-text mb-2">95%</div><p class="text-[10px] tracking-widest uppercase opacity-60">Success Rate</p></div>
+            <div><div class="text-5xl font-heading gold-text mb-2">4.9/5</div><p class="text-[10px] tracking-widest uppercase opacity-60">Rating</p></div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 bg-white">
+        <div class="container mx-auto px-6 md:px-12 text-center mb-16">
+            <h2 class="font-heading text-4xl">Program Tiers</h2>
+        </div>
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <div class="border border-gray-100 p-10 text-center hover:border-gold transition">
+                <h4 class="font-heading text-2xl mb-4">Basic</h4>
+                <div class="text-4xl font-bold mb-8">$299</div>
+                <button onclick="toggleModal()" class="w-full py-4 border border-navy text-[10px] font-bold uppercase tracking-widest">Select</button>
+            </div>
+            <div class="bg-navy text-white p-10 text-center shadow-2xl relative">
+                <div class="absolute top-0 right-0 gold-gradient text-navy text-[10px] px-4 py-1 font-bold">POPULAR</div>
+                <h4 class="font-heading text-2xl mb-4">Pro</h4>
+                <div class="text-4xl font-bold mb-8 gold-text">$599</div>
+                <button onclick="toggleModal()" class="w-full py-4 gold-gradient text-navy text-[10px] font-bold uppercase tracking-widest">Select</button>
+            </div>
+            <div class="border border-gray-100 p-10 text-center hover:border-gold transition">
+                <h4 class="font-heading text-2xl mb-4">Elite</h4>
+                <div class="text-4xl font-bold mb-8">$999</div>
+                <button onclick="toggleModal()" class="w-full py-4 border border-navy text-[10px] font-bold uppercase tracking-widest">Select</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-offWhite">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="font-heading text-4xl mb-12">Get In Touch</h2>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <input type="text" placeholder="Name" class="p-4 border-b border-gray-300 bg-transparent outline-none focus:border-gold">
+                <input type="email" placeholder="Email" class="p-4 border-b border-gray-300 bg-transparent outline-none focus:border-gold">
+                <textarea placeholder="Your Goals" class="md:col-span-2 p-4 border-b border-gray-300 bg-transparent outline-none focus:border-gold h-32"></textarea>
+                <button class="md:col-span-2 gold-gradient py-5 font-bold uppercase tracking-widest text-xs">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="demo-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-6 modal-hidden">
+        <div class="absolute inset-0 bg-navy/90 backdrop-blur-sm" onclick="toggleModal()"></div>
+        <div class="bg-white w-full max-w-lg relative z-10 p-10 shadow-2xl">
+            <button onclick="toggleModal()" class="absolute top-4 right-4 text-gray-400 hover:text-navy"><i data-lucide="x"></i></button>
+            <h2 class="font-heading text-3xl mb-4">Book Your Free Demo</h2>
+            <p class="text-gray-500 mb-8 text-sm">Experience our premium coaching firsthand.</p>
+            <form class="space-y-4">
+                <input type="text" placeholder="Full Name" class="w-full p-3 border border-gray-200 outline-none focus:border-gold">
+                <input type="email" placeholder="Work Email" class="w-full p-3 border border-gray-200 outline-none focus:border-gold">
+                <button type="submit" class="w-full gold-gradient py-4 font-bold uppercase tracking-widest text-xs">Confirm Demo Slot</button>
+            </form>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         lucide.createIcons();
-        AOS.init({ duration: 1000, once: true });
+        AOS.init();
 
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const links = document.querySelectorAll('.close-link');
-
-        menuBtn.addEventListener('click', () => mobileMenu.classList.add('menu-open'));
-        closeBtn.addEventListener('click', () => mobileMenu.classList.remove('menu-open'));
-        links.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('menu-open')));
+        // Toggle Modal Function
+        function toggleModal() {
+            const modal = document.getElementById('demo-modal');
+            if (modal.classList.contains('modal-hidden')) {
+                modal.classList.remove('modal-hidden');
+                modal.classList.add('modal-active');
+            } else {
+                modal.classList.add('modal-hidden');
+                modal.classList.remove('modal-active');
+            }
+        }
     </script>
 </body>
 </html>
